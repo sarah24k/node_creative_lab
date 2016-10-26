@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+
+  </head>
+  <body>
+    <style>
+
+    body{
+		  background-image: url(ChugachMountains.jpg);
+		}
+    #div
+		{
+		background-color: rgba(255, 255, 255, 0.5);
+		}
+
+    #newDocument
+    {
+      width: 100%;
+      height: auto;
+    }
+
+
+    </style>
+
+    <div id="div">
+    <form id="form">
+		 <br>
+		Enter a url:  <input type="text" id="url" value="">
+	<input id="urlButton" type="submit" value="Submit"><br>
+		</form>
+</div>
+
+<div id = newDocument>
+<iframe id = "frame" src="">
+ </iframe>
+
+</div>
+
+
+
+
+<script>
+$("#urlButton").click( function(e)
+{
+var serverUrl = "http://ec2-52-38-105-165.us-west-2.compute.amazonaws.com:3000/getProxy?q="+$("#url").val();
+console.log("before ajax call");
+$.ajax({
+  url : "serverUrl",
+  dataType : "GET",
+  success : function(text) {
+    console.log("text is: "+text)
+    $("#frame").html(text);
+  }
+    });
+
+
+var html_string= "content";
+$('#frame').src = "data:text/html;charset=utf-8," + escape(html_string);
+
+
+})
+
+
+</script>
+  </body>
+</html>
