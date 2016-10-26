@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -48,10 +49,10 @@
 <script>
 $("#urlButton").click( function(e)
 {
-var serverUrl = "http://ec2-52-38-105-165.us-west-2.compute.amazonaws.com:3000/getProxy?q="+$("#url").val();
-console.log("before ajax call");
+var serverUrl = "http://ec2-52-89-153-236.us-west-2.compute.amazonaws.com:3000/scraper?q="+$("#url").val();
+console.log("Server url is: "+serverUrl);
 $.ajax({
-  url : "serverUrl",
+  url : serverUrl,
   dataType : "GET",
   success : function(text) {
     console.log("text is: "+text)
@@ -60,9 +61,9 @@ $.ajax({
     });
 
 
-var html_string= "content";
-$('#frame').src = "data:text/html;charset=utf-8," + escape(html_string);
-
+// var html_string= "content";
+// $('#frame').src = "data:text/html;charset=utf-8," + escape(html_string);
+//document.body.innerHTML = document.body.innerHTML.replace('hello', 'hi');
 
 })
 
